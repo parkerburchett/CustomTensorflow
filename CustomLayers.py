@@ -4,18 +4,18 @@ import tensorflow as tf
 @tf.keras.utils.register_keras_serializable()
 class FeatureReversalNoise(tf.keras.layers.Layer):
   """
-  Randomly switches the sign of the input columns with probability `prob`
-  It does not randomly switch exactly `prob_switch_sign` percent of features.
-  The % of signs that are switched is normally distributed around `prob_switch_sign`
+    Randomly switches the sign of the input columns with probability `prob`
+    It does not randomly switch exactly `prob` percent of features.
+    The % of signs that are switched is normally distributed around `prob`
 
-  Based on this Numerai forum post by https://forum.numer.ai/u/mdo:
-  https://forum.numer.ai/t/feature-reversing-input-noise/1416
+    Based on this Numerai forum post by https://forum.numer.ai/u/mdo:
+    https://forum.numer.ai/t/feature-reversing-input-noise/1416
 
-  example usage :
-  model.add(tf.keras.Input(shape=(24)))
-  model.add(FeatureReversalNoise(input_vector_length=24,prob=.2))
+    example usage :
+    model.add(tf.keras.Input(shape=(24)))
+    model.add(FeatureReversalNoise(input_vector_length=24,prob=.2))
 
-  Might want to rewrite this as an tf.keras.layers.Input layer. 
+    Might want to rewrite this as an tf.keras.layers.Input layer. 
   """
 
   def __init__(self, input_vector_length:int, prob:float, name=None,**kwargs):
