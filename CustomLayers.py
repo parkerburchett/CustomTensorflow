@@ -23,7 +23,7 @@ class FeatureReversalNoise(tf.keras.layers.Layer):
     Syntax Source:
     https://stackoverflow.com/questions/62280161/saving-keras-models-with-custom-layers
     """
-    if prob < 0 or prob> 1:
+    if prob < 0 or prob > 1:
         raise ValueError(f'prob must be between (0,1) is currently {prob}')
     self.input_vector_length = input_vector_length
     self.prob = prob
